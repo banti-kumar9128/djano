@@ -1,0 +1,25 @@
+{% extends 'Layout.html' %} {% block title %}Index Page{% endblock %} 
+
+{% block content %}
+
+<h1 class="text-primary text-center">Welcome to the Index Page!</h1>
+<p class="text-secondary text-center">This is a simple Django template.</p>
+
+<a href="{% url 'ham_create' %}" class="btn btn-success m-10 text-">Create New message</a>
+<div class="container gap-3 d-flex flex-wrap justify-content-center">
+  {% for ham in hams %}
+  <div class="card" style="width: 18rem">
+    <img src="{{ ham.photo.url }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ ham.name }}</h5>
+    
+      <p class="card-text">{{ ham.text }}</p>
+        {% if ham.user == user %}
+      <a href="{% url 'ham_edit' ham.id %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'ham_delete' ham.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
+    </div>
+  </div>
+   {% endfor %}
+  </div>
+{% endblock %}
