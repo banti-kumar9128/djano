@@ -19,4 +19,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    import os
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hello.settings")
+   
