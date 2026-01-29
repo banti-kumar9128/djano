@@ -19,8 +19,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.urls import views as auth_views
+from django.http import HttpResponse
+from django.urls import path
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ham.urls')),
+    path("", lambda request: HttpResponse("Django on Vercel working 🚀")),
+
     path('accounts/', include('django.contrib.auth.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
