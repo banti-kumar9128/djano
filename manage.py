@@ -21,4 +21,5 @@ def main():
 if __name__ == '__main__':
     import os
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hello.settings")
+    main()
    
